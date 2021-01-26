@@ -13,8 +13,16 @@ router.get("/vacancies", (req, res, next) =>{
     res.send("<h1>Vacancies</h1>")
 });
 
+router.get("/contact", (req, res, next) =>{
+    res.send("<h1>Contact</h1>")
+});
+
 router.get("/careers", (req, res, next) =>{
     res.send("<h1>Careers</h1>")
+});
+
+router.get("/resources", (req, res, next) =>{
+    res.send("<h1>Resources</h1>")
 });
 
 module.exports = router;
