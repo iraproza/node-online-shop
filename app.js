@@ -1,18 +1,11 @@
-const express = require("express"); // підключення веб-сервера
+const express = require("express");
 
-// Include shop routes
+const path = require("path")
 const shopRoutes = require("./routes/shopRoutes");
 
 const PORT = 8000;
-const app = express(); // об*єкт сервера - приходить запит від сервера
+const app = express(); 
 
-
-// Use Midelwer
 app.use(shopRoutes);
 
-// app.use("/", (req, res, next) =>{ // запит тільки на головну
-//     // console.log("Request =>", req)
-//     res.send("<h1>Home page</h1>") // дати відповідь
-// });
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) // слухати сервер
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
