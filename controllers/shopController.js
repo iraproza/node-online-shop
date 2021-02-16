@@ -1,3 +1,5 @@
+const Product = require("../models/product");
+
 exports.getBlogPage = (req, res, next) => {
     res.render("pages/blog")
 }
@@ -7,7 +9,12 @@ exports.getCartPage = (req, res, next) => {
 }
 
 exports.getCategoryPage = (req, res, next) => {
-    res.render("pages/category")
+    Product.findAll()
+    .then(([rows, fildData]) => {
+        console.log("Data ")
+        res.render("pages/category")
+    })
+    .catch(err => console.log(err));
 }
 
 exports.getCheckoutPage = (req, res, next) => {
