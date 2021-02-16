@@ -5,4 +5,5 @@ const sequalize = new Sequalize("online_shop", "root", "", {
     dialect: "mysql"
 })
 
+sequalize.sync();
 module.exports = sequalize;

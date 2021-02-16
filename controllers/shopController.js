@@ -10,9 +10,10 @@ exports.getCartPage = (req, res, next) => {
 
 exports.getCategoryPage = (req, res, next) => {
     Product.findAll()
-    .then(([rows, fildData]) => {
-        console.log("Data ")
-        res.render("pages/category")
+    .then((products) => {
+        res.render("pages/category",{
+            products: products,
+        });
     })
     .catch(err => console.log(err));
 }
