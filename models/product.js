@@ -13,6 +13,10 @@ const Product = sequalize.define("product", {
         type: Sequalize.STRING,
         allowNull: false
     },
+    category: {
+        type: Sequalize.STRING,
+        allowNull: false
+    },
     price:{
         type: Sequalize.DOUBLE,
         allowNull: false

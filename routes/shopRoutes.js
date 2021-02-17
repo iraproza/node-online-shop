@@ -13,7 +13,7 @@ router.get("/confirmation", getConfirmationPage);
 router.get("/login", getLoginPage);
 router.get("/register", getRegisterPage);
 router.get("/single-blog", getSingleBlogPage);
-router.get("/single-product", getSingleProductPage);
+router.get("/single-product/:id", getSingleProductPage);
 router.get("/tracking-order", getTrackingOrderPage);
 router.get("/*", get404);
 

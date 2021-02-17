@@ -47,7 +47,14 @@ exports.getSingleBlogPage = (req, res, next) => {
 }
 
 exports.getSingleProductPage = (req, res, next) => {
-    res.render("pages/single-product")
+    const productId = req.params.id;
+    Product.findByPk(productId)
+    .then((product) => {
+        res.render("pages/single-product",{
+            product: product,
+        });
+    })
+    .catch(err => console.log(err));
 }
 
 exports.getTrackingOrderPage = (req, res, next) => {
