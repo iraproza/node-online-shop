@@ -69,6 +69,27 @@ exports.getNewProductPage = (req, res, next) => {
     res.render("pages/addNewProduct.ejs")
 }
 
+exports.postNewsProductPage = (req, res, next) =>{
+    const title = req.body.title;
+    const category = req.body.category;
+    const price = req.body.price;
+    const image = req.body.image;
+    const description = req.body.description;
+
+    Product.create({
+        title: title,
+        category: category,
+        price: price,
+        image: image,
+        description: description
+    })
+    .then((result) => {
+        console.log("Product create")
+        return res.redirect("/category")
+    })
+    .catch(err => console.log(err));
+}
+
 exports.get404 = (req, res, next) => {
     res.status(404).render("pages/404.ejs")
 }

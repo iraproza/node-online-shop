@@ -1,22 +1,25 @@
-const {get404, getHomePage, getBlogPage, getCartPage, getCategoryPage, getContactPage, getCheckoutPage, getConfirmationPage, getLoginPage, getRegisterPage, getSingleBlogPage, getSingleProductPage, getTrackingOrderPage, getNewProductPage} = require("../controllers/shopController")
+// const {get404, getHomePage, getBlogPage, getCartPage, getCategoryPage, getContactPage, getCheckoutPage, getConfirmationPage, getLoginPage, getRegisterPage, getSingleBlogPage, getSingleProductPage, getTrackingOrderPage, getNewProductPage} = require("../controllers/shopController")
+
+const shopController = require("../controllers/shopController")
 
 const express = require("express");
 const router = express.Router();
 
-router.get("/", getHomePage);
-router.get("/blog", getBlogPage);
-router.get("/contact", getContactPage);
-router.get("/cart", getCartPage);
-router.get("/category", getCategoryPage);
-router.get("/checkout", getCheckoutPage);
-router.get("/confirmation", getConfirmationPage);
-router.get("/login", getLoginPage);
-router.get("/register", getRegisterPage);
-router.get("/single-blog", getSingleBlogPage);
-router.get("/products/:id", getSingleProductPage);
-router.get("/tracking-order", getTrackingOrderPage);
-router.get("/add-product", getNewProductPage);
-router.get("/*", get404);
+router.get("/", shopController.getHomePage);
+router.get("/blog", shopController.getBlogPage);
+router.get("/contact", shopController.getContactPage);
+router.get("/cart", shopController.getCartPage);
+router.get("/category", shopController.getCategoryPage);
+router.get("/checkout", shopController.getCheckoutPage);
+router.get("/confirmation", shopController.getConfirmationPage);
+router.get("/login", shopController.getLoginPage);
+router.get("/register", shopController.getRegisterPage);
+router.get("/single-blog", shopController.getSingleBlogPage);
+router.get("/products/:id", shopController.getSingleProductPage);
+router.get("/tracking-order", shopController.getTrackingOrderPage);
+router.get("/add-product", shopController.getNewProductPage);
+router.post("/add-product",shopController.postNewsProductPage);
+router.get("/*", shopController.get404);
 
 
 module.exports = router;
