@@ -64,3 +64,11 @@ exports.getTrackingOrderPage = (req, res, next) => {
 exports.get404 = (req, res, next) => {
     res.status(404).render("pages/404.ejs")
 }
+
+exports.getNewProductPage = (req, res, next) => {
+    res.render("pages/addNewProduct.ejs")
+}
+
+exports.get404 = (req, res, next) => {
+    res.status(404).render("pages/404.ejs")
+}
