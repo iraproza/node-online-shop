@@ -16,6 +16,7 @@ router.get("/login", shopController.getLoginPage);
 router.get("/register", shopController.getRegisterPage);
 router.get("/single-blog", shopController.getSingleBlogPage);
 router.get("/products/:id", shopController.getSingleProductPage);
+router.get("/products:id", shopController.deleteProduct);
 router.get("/tracking-order", shopController.getTrackingOrderPage);
 router.get("/add-product", shopController.getNewProductPage);
 router.post("/add-product",shopController.postNewsProductPage);

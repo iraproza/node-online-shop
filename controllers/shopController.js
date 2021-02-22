@@ -90,6 +90,22 @@ exports.postNewsProductPage = (req, res, next) =>{
     .catch(err => console.log(err));
 }
 
+exports.deleteProduct = (req, res,  next) =>{
+    console.log('Delete Course');
+    const id = req.params.id;
+    Product.destroy(
+        {
+            where: {
+                id: id
+            }
+        }
+    )
+    .then((product) => {
+        return res.redirect("/category");
+    })
+    .catch(err => console.log(err));
+}
+
 exports.get404 = (req, res, next) => {
     res.status(404).render("pages/404.ejs")
 }
