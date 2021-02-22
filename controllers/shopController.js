@@ -106,6 +106,44 @@ exports.deleteProduct = (req, res,  next) =>{
     .catch(err => console.log(err));
 }
 
+exports.editProductPage = (req, res, next) => {
+    const id = req.params.id;
+    Product.findByPk(id)
+        .then((product) => {
+            res.render("pages/edit-product", {
+                product: product
+            });
+        })
+        .catch((err) => console.log(err));
+};
+
+exports.editProduct = (req, res, next) => {
+    const id = req.params.id;
+    const title = req.body.title;
+    const category = req.body.category;
+    const price = req.body.price;
+    const image = req.body.image;
+    const description = req.body.description;
+    const product = {
+        title: title,
+        category: category,
+        price: price,
+        image: image,
+        description: description
+    }
+
+    Product.update( product,
+    {
+        where: {
+            id: id
+        }
+    })
+    .then((result) => {
+        res.redirect(`/products/${id}`);
+    })
+    .catch(err => console.log(err));
+}
+
 exports.get404 = (req, res, next) => {
     res.status(404).render("pages/404.ejs")
 }

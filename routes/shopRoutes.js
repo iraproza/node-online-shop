@@ -20,6 +20,8 @@ router.get("/products:id", shopController.deleteProduct);
 router.get("/tracking-order", shopController.getTrackingOrderPage);
 router.get("/add-product", shopController.getNewProductPage);
 router.post("/add-product",shopController.postNewsProductPage);
+router.get("/edit-product/:id", shopController.editProductPage);
+router.post("/edit-product/:id", shopController.editProduct);
 router.get("/*", shopController.get404);
 
 
